@@ -21,7 +21,12 @@
             </div>
             <div class="left">
                 <button>Login</button>
-                <button>Cart</button>
+                
+            <div id="cart-icon">
+                <img src="shopping-cart.png" alt="Cart">
+                    <span id="cart-count">0</span>
+                    </div>
+
             </div>
         </div>
         <div class="herosection">
@@ -70,15 +75,24 @@
 <div id="product-modal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2 id="product-title"></h2>
-        <img id="product-image" src="" alt="Product Image">
+       
+       <img id="product-image" src="" alt="Product Image">
+       <div class="imgagetext">
+       <h2 id="product-title"></h2>
         <p id="product-description"></p>
         <p id="product-price"></p>
+        <div class="input">
         <input id="product-quantity" type="number" value="1">
-        <button id="increment-quantity">+</button>
-        <button id="decrement-quantity">-</button>
-        <button id="add-to-cart">Add to Cart</button>
+    <button id="increment-quantity">+</button>
+    <button id="decrement-quantity">-</button>
+    <button id="add-to-cart">Add to Cart</button>
+        </div>
+       
+        </div>
+        
+    
     </div>
+    
 </div>
 
 

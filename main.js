@@ -40,6 +40,9 @@ function createProductCard(element) {
     cartIcon.style.height = '20px';
     cartIcon.style.backgroundColor = '#007BFF';
 
+
+   
+
     productCard.appendChild(product_image);
     productCard.appendChild(product_title);
     productCard.appendChild(product_price);
@@ -48,6 +51,7 @@ function createProductCard(element) {
     return productCard;
 }
 
+
 function displayProductDetails(product) {
     
     const productModal = document.getElementById('product-modal');
@@ -55,11 +59,16 @@ function displayProductDetails(product) {
     const productImage = document.getElementById('product-image');
     const productDescription = document.getElementById('product-description');
     const productPrice = document.getElementById('product-price');
+    const quantityInput = document.getElementById('product-quantity');
+    const incrementButton = document.getElementById('increment-quantity');
+    const decrementButton = document.getElementById('decrement-quantity');
+    const Button = document.getElementById('add-to-cart');
     
-    productTitle.textContent = product.title;
-    productImage.src = product.image;
+     productImage.src = product.image;
     productDescription.textContent = `Description: ${product.description}`;
     productPrice.textContent = `Price: $${product.price}`;
+    productTitle.textContent = product.title;
+
     
    
     productModal.style.display = 'block';
@@ -69,6 +78,29 @@ function displayProductDetails(product) {
         productModal.style.display = 'none';
     });
 
+
+    Button.addEventListener('click', () => {
+        const productUrl = `cart.html?title=${encodeURIComponent(element.title)}&price=${element.price}&description=${encodeURIComponent(element.description)}`;
+        window.location.href = productUrl;
+    });
+
+
+ let quantity = 1;
+    quantityInput.value = quantity;
+
+    incrementButton.addEventListener('click', () => {
+        quantity++;
+        quantityInput.value = quantity;
+    });
+
+    decrementButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityInput.value = quantity;
+        }
+    });
+
+    
     
 }
 
